@@ -30,5 +30,17 @@ namespace ICETask3.Controllers
             }
             return View(student);
         }
+
+        public async Task<IActionResult> Export()
+        {
+            var students = await _context.Student.ToListAsync();
+            var csv = "ID,Student Number,Name,Mark\n";
+            foreach (var student in students)
+            {
+                csv += $"{student.Id},{student.StudentNumber},{student.Name},{student.Mark}\n";
+            }
+            return Content(csv, "text/csv");
+            
+        }
     }
-}
+
