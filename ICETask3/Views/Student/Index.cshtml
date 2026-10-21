@@ -1,0 +1,25 @@
+@model IEnumerable<ICETask3.Models.Student>
+@{
+	ViewData["Title"] = "Student List";
+}
+
+<h1>Student List</h1>
+<table class="table table-boarded table-striped">
+    <thead>
+        <tr>
+            <th>Student Number</th>
+            <th>Name</th>
+            <th>Mark</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+            <tr>
+                <td>@student.StudentNumber</td>
+                <td>@student.Name</td>
+                <td>@student.Mark</td>
+            </tr>
+        }
+    </tbody>
+</table>
